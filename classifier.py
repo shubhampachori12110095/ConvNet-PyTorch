@@ -20,8 +20,9 @@ transform = transforms.Compose([transforms.ToTensor(),
 testset = imagefolder.ImageFolderWithPath(root='./images', transform=transform)
 testloader = torch.utils.data.DataLoader(testset)
 
-classes = ('bird', 'car', 'cat', 'deer',
-           'dog', 'frog', 'horse', 'plane', 'ship', 'truck')
+classes = ('airplane', 'automobile', 'bird', 'cat',
+'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+
 gallery_path = './final_gallery/'
 weights_file = './trained_model_weights'
 

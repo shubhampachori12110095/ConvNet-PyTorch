@@ -17,12 +17,10 @@ transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5
 
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
                                         download=True, transform=transform)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=4,
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=64,
                                           shuffle=True, num_workers=4)
 
-classes = ('bird', 'cat', 'ship', 'plane',
-           'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
-epoch = 2
+epoch = 10
 weights_file = './trained_model_weights'
 
 # Model instance
@@ -60,9 +58,9 @@ for epoch in range(epoch):
 
         # print statistics
         running_loss += loss.data[0]
-        if i % 2000 == 1999:    # print every 2000 mini-batches
+        if i % 50 == 49:    # print every 2000 mini-batches
             print('[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, running_loss / 2000))
+                  (epoch + 1, i + 1, running_loss / 50))
             running_loss = 0.0
 
 print('Training finished, creating weights file.')
